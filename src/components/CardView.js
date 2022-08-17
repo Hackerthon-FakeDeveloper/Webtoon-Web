@@ -18,7 +18,7 @@ function CardView(props) {
                   <img src={value.image} alt="thumbnail" />
                 </div>
                 <h1>{value.title}</h1>
-                <p>⭐️ {value.star}</p>
+                <p>&#9733; {value.star}</p>
               </div>
             ))}
           </div>
