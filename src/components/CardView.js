@@ -11,7 +11,7 @@ function CardView(props) {
   const json = data.data.list;
 
   return (
-    <section className="Station">
+    <section className="CardView">
       <h1 className="text-2xl p-5">{children}</h1>
 
       <div className="flex flex-col m-auto p-auto">
