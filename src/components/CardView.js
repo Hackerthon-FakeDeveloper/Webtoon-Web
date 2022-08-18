@@ -1,24 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-CardView.propTypes = {};
+CardView.propTypes = {
+  data: PropTypes.array,
+  children: PropTypes.string,
+};
 
 function CardView(props) {
-  const { list } = props;
-  const listJson = list.data.sort();
+  const { data, children } = props;
+  const json = data.data.list;
 
   return (
-    <section className="CardView">
-      <div class="flex flex-col m-auto p-auto">
-        <div class="flex overflow-x-scroll p-5 hide-scroll-bar">
-          <div class="flex flex-nowrap">
-            {listJson.map((value) => (
-              <div class="inline-block pr-3">
-                <div class="w-32 h-32 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                  <img src={value.image} alt="thumbnail" />
+    <section className="Station">
+      <h1 className="text-2xl p-5">{children}</h1>
+
+      <div className="flex flex-col m-auto p-auto">
+        <div className="flex overflow-x-scroll p-5 pt-0 hide-scroll-bar">
+          <div className="flex flex-nowrap">
+            {json.map((value) => (
+              <div className="inline-block pr-3">
+                <div className="card-size overflow-hidden rounded-lg shadow-md bg-gradient-to-r bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+                  <a href={value.url}>
+                    <img src={value.image} alt="thumbnail" />
+                  </a>
                 </div>
-                <h1>{value.title}</h1>
-                <p>&#9733; {value.star}</p>
+                <a href={value.url}>
+                  <h1 className="mt-2">{value.title}</h1>
+                  <p className="text-zinc-500">&#9733; {value.sub}</p>
+                </a>
               </div>
             ))}
           </div>
