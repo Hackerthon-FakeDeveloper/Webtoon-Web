@@ -1,20 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-CartView.propTypes = {
+import "../styles/chart.css";
+
+ChartView.propTypes = {
   data: PropTypes.array,
   children: PropTypes.string,
 };
 
-function CartView(props) {
+function ChartView(props) {
   const { data, children } = props;
   const json = data.data.list;
 
   return (
-    <section className="CartView">
+    <section className="ChartView">
       <h1 className="text-2xl p-5">{children}</h1>
 
-      <ul class="flex flex-col divide-y w-full">
+      <ul class="divide-y">
         {json.map((value, index) => (
           <li class="flex flex-row">
             <div class="select-none cursor-pointer hover:bg-gray-50 flex flex-1 items-center p-4">
@@ -36,4 +38,4 @@ function CartView(props) {
   );
 }
 
-export default CartView;
+export default ChartView;
