@@ -19,7 +19,7 @@ function CardView(props) {
           <div className="flex flex-nowrap">
             {json.map((value) => (
               <div className="inline-block pr-3">
-                <div className="card-size overflow-hidden rounded-lg shadow-md bg-gradient-to-r bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+                <div className="card-size overflow-hidden rounded-lg shadow-md  bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                   <a href={value.url}>
                     <img src={value.image} alt="thumbnail" />
                   </a>

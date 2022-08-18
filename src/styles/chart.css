@@ -1,8 +1,7 @@
 .ChartView ul {
     display: flex;
-    align-content: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
     overflow: auto;
-    height: 200px;
+    height: 170px;
 }
