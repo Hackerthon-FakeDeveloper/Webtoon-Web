@@ -26,7 +26,7 @@ function CardView(props) {
                 </div>
                 <a href={value.url}>
                   <h1 className="mt-2">{value.title}</h1>
-                  <p className="text-zinc-500">&#9733; {value.sub}</p>
+                  <p className="text-zinc-500">{value.sub}</p>
                 </a>
               </div>
             ))}
