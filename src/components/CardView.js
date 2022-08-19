@@ -12,10 +12,10 @@ function CardView(props) {
 
   return (
     <section className="CardView">
-      <h1 className="text-2xl p-5">{children}</h1>
+      <h1 className="text-2xl p-2">{children}</h1>
 
       <div className="flex flex-col m-auto p-auto">
-        <div className="flex overflow-x-scroll p-5 pt-0 hide-scroll-bar">
+        <div className="flex overflow-x-scroll p-2 hide-scroll-bar">
           <div className="flex flex-nowrap">
             {json.map((value) => (
               <div className="inline-block pr-3">
@@ -25,8 +25,8 @@ function CardView(props) {
                   </a>
                 </div>
                 <a href={value.url}>
-                  <h1 className="mt-2">{value.title}</h1>
-                  <p className="text-zinc-500">{value.sub}</p>
+                  <p className="mt-2">{value.title}</p>
+                  <p className="text-zinc-500 text-sm">{value.sub}</p>
                 </a>
               </div>
             ))}

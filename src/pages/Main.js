@@ -12,8 +12,8 @@ import ChartJson from "../test/chart.json";
 function Main(props) {
   return (
     <section className="Main">
-      <div className="md:container md:mx-auto">
-        <h1 className="text-4xl p-5">매일 새로운 웹툰을 발견해 보세요.</h1>
+      <div className="container">
+        <h1 className="text-4xl p-2">매일 새로운 웹툰을 발견해 보세요.</h1>
         <hr />
         <ChartView data={ChartJson}>인기 차트</ChartView>
         <CardView data={toonJson}>이달의 신작</CardView>

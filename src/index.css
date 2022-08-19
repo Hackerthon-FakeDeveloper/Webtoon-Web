@@ -8,8 +8,8 @@
 }
 
 body {
+  background-color: #f5f4f0;
   color: rgb(0.4, 0.4, 0.4);
-  background-color: rgb(245, 244, 240);
   margin: 0;
   font-family: "CookieRun", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -23,9 +23,6 @@ code {
     monospace;
 }
 
-hr {
-  background-color: black;
-}
 
 .hide-scroll-bar {
   -ms-overflow-style: none;

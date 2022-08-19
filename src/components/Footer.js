@@ -2,10 +2,10 @@ import React from "react";
 
 import "../styles/Footer.css";
 
-function Footer(props) {
+function Footer() {
   return (
     <section className="Footer">
-      <footer class="p-8">
+      <footer class="container p-8 mt-6 ">
         <div className="text-center">
           <a href="https://securecoding.software/">소개딩 해커톤 시즌 4</a>
         </div>
