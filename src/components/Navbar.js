@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-
-import LoginButton from "../components/Login";
+import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [menuToggle, setMenuToggle] = useState(false);
 
   return (
-    <section className="Navbar bg-white px-2">
+    <section className="Navbar px-2">
       <div className="container">
         <div className="flex justify-between">
           {/* 메뉴 */}
@@ -36,7 +35,9 @@ const Navbar = () => {
 
           {/* 메뉴2 */}
           <div className="hidden md:flex items-center space-x-1">
-            <LoginButton />
+            <a href="1" className="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">
+              구글로 로그인
+            </a>
           </div>
 
           {/* mobile menu */}
