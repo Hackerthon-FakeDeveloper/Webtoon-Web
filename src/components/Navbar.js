@@ -12,7 +12,7 @@ const Navbar = () => {
           {/* 메뉴 */}
           <div className="flex space-x-4">
             <div>
-              <a href="#1" className="flex items-center py-5 px-2">
+              <p className="flex items-center py-5 px-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
                   <path
                     fillRule="evenodd"
@@ -20,8 +20,8 @@ const Navbar = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span>모두의 웹툰</span>
-              </a>
+                <span className="text-md">모두의 웹툰</span>
+              </p>
             </div>
             <div className="hidden md:flex items-center space-x-1">
               <a href="#1" className="py-5 px-3 text-gray-500 hover:text-gray-900">
@@ -35,7 +35,7 @@ const Navbar = () => {
 
           {/* 메뉴2 */}
           <div className="hidden md:flex items-center space-x-1">
-            <a href="1" className="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">
+            <a href="1" className="py-2 p-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">
               구글로 로그인
             </a>
           </div>
@@ -58,11 +58,11 @@ const Navbar = () => {
       </div>
       {/* mobile menu items */}
       <div className={classNames("md:hidden", { hidden: !menuToggle })}>
-        <a href="#1" className="block py-2 px-4 text-sm hover:bg-gray-200">
-          Pricing
+        <a href="#1" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+          홈
         </a>
-        <a href="#1" className="block py-2 px-4 text-sm hover:bg-gray-200">
-          Features
+        <a href="#1" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+          리뷰
         </a>
       </div>
     </section>

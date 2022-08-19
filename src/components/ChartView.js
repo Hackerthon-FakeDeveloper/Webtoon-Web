@@ -21,7 +21,7 @@ function ChartView(props) {
           <li>
             <div className="select-none cursor-pointer hover:shadow-lg transition-shadow duration-300 ease-in-out flex flex-1 items-center p-4">
               <div className="mr-3">{index + 1}</div>
-              <img alt="thumbnail" src={value.image} className="mx-auto object-cover h-10 w-10" />
+              <img alt="thumbnail" src={value.image} title={value.title} className="mx-auto object-cover h-10 w-10" />
               <div className="flex-1 pl-1">
                 <div className="truncate">{value.title}</div>
                 <div className="text-gray-500 text-sm">{value.sub}</div>
