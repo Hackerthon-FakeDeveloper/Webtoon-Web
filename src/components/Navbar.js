@@ -55,15 +55,16 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </div>
-      {/* mobile menu items */}
-      <div className={classNames("md:hidden", { hidden: !menuToggle })}>
-        <a href="#1" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
-          홈
-        </a>
-        <a href="#1" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
-          리뷰
-        </a>
+
+        {/* mobile menu items */}
+        <div className={classNames("md:hidden", { hidden: !menuToggle })}>
+          <a href="#1" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+            홈
+          </a>
+          <a href="#1" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+            리뷰
+          </a>
+        </div>
       </div>
     </section>
   );
