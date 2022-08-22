@@ -24,18 +24,16 @@ const Navbar = () => {
               </p>
             </div>
             <div className="hidden md:flex items-center space-x-1">
-              <a href="#1" className="py-5 px-3 text-gray-500 hover:text-gray-900">
-                홈
-              </a>
-              <a href="#1" className="py-5 px-3 text-gray-500 hover:text-gray-900">
+              <span className="py-5 px-3 text-gray-500 hover:text-gray-900">홈</span>
+              <span href="#1" className="py-5 px-3 text-gray-500 hover:text-gray-900">
                 리뷰
-              </a>
+              </span>
             </div>
           </div>
 
           {/* 메뉴2 */}
           <div className="hidden md:flex items-center space-x-1">
-            <a href="1" className="py-2 p-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">
+            <a href="http://5gradekgucapstone.xyz:8080/oauth2/authorization/google" className="py-2 p-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">
               구글로 로그인
             </a>
           </div>
