@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuToggle, setMenuToggle] = useState(false);
+  const login = sessionStorage.getItem("USER");
+
+  console.log(login);
 
   return (
     <section className="Navbar">
@@ -37,9 +40,15 @@ const Navbar = () => {
 
           {/* 메뉴2 */}
           <div className="hidden md:flex items-center space-x-1">
-            <a href="http://api.modutoon.com/oauth2/authorization/google" className="py-2 p-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">
-              구글로 로그인
-            </a>
+            {login === null ? (
+              <a href="http://api.modutoon.com/oauth2/authorization/google" className="py-2 p-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">
+                구글로 로그인
+              </a>
+            ) : (
+              <a href="http://modutoon.com/profile" className="py-2 p-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">
+                프로필
+              </a>
+            )}
           </div>
 
           {/* mobile menu */}
@@ -60,9 +69,15 @@ const Navbar = () => {
 
         {/* mobile menu items */}
         <div className={classNames("md:hidden", { hidden: !menuToggle })}>
-          <a href="http://api.modutoon.com/oauth2/authorization/google" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
-            구글로 로그인
-          </a>
+          {login === null ? (
+            <a href="http://api.modutoon.com/oauth2/authorization/google" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+              구글로 로그인
+            </a>
+          ) : (
+            <a href="http://modutoon.com/profile" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+              프로필
+            </a>
+          )}
           <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">인기</p>
           <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">추천</p>
           <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">장르별</p>
