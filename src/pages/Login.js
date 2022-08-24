@@ -6,23 +6,23 @@ function Login() {
   const { token } = useParams();
   let navigate = useNavigate();
 
-  // 토큰이 정상적으로 발급 될 경우
+  // 정사적으로 토큰이 들어오면 세션 스토리지에 저장
   if (token) {
-    localStorage.setItem("LOGIN_TOKEN", token);
+    sessionStorage.setItem("USER", token);
   }
 
-  // 유저 인포 체크
+  // 사용자, 프로필 설정 확인
   axios
     .get("http://api.modutoon.com:80/user/checkinfoset", {
       headers: {
-        Authorization: localStorage.getItem("LOGIN_TOKEN"),
+        Authorization: sessionStorage.getItem("USER"),
       },
     })
     .then(function (response) {
       const check = response.data.data.check;
       console.log(response.data);
 
-      // false일 경우 프로필로 리다이렉트
+      // false일 경우 프로필 설정으로 리다이렉트
       check === false ? navigate("/profile") : navigate("/");
     })
     .catch(function (error) {
