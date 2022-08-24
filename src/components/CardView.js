@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 CardView.propTypes = {
-  data: PropTypes.array,
+  json: PropTypes.string,
   children: PropTypes.string,
 };
 
 function CardView(props) {
-  const { data, children } = props;
-  const json = data.data.list;
+  const { json, children } = props;
+  const [data, setData] = useState([]);
+
+  async function getData() {
+    try {
+      //응답 성공
+      const response = await axios.get(json);
+      const webtoon = response.data.data.webtoonList;
+      setData(webtoon);
+
+      console.log(webtoon);
+    } catch (error) {
+      //응답 실패
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <section className="CardView">
@@ -17,18 +37,16 @@ function CardView(props) {
       <div className="flex flex-col m-auto p-auto">
         <div className="flex overflow-x-scroll p-2 hide-scroll-bar">
           <div className="flex flex-nowrap">
-            {json.map((value) => (
-              <div className="inline-block pr-3">
-                <div className="card-size overflow-hidden rounded-lg shadow-md  bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-                  <a href={value.url}>
-                    <img src={value.image} alt="thumbnail" title={value.title} />
-                  </a>
-                </div>
-                <a href={value.url}>
+            {data.map((value) => (
+              <Link to={"/page/" + value.seq}>
+                <div className="inline-block pr-3">
+                  <div className="card-size overflow-hidden rounded-lg shadow-md  bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+                    <img src={value.thumbnail} alt="thumbnail" title={value.title} />
+                  </div>
                   <p className="mt-2">{value.title}</p>
-                  <p className="text-zinc-500 text-sm">{value.sub}</p>
-                </a>
-              </div>
+                  <p className="text-zinc-500 text-sm">평점</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
