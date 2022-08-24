@@ -2,6 +2,7 @@ import React from "react";
 
 import ChartView from "../components/ChartView";
 import CardView from "../components/CardView";
+import StationView from "../components/StationView";
 
 import "../styles/Main.css";
 
@@ -12,13 +13,14 @@ function Main(props) {
 
   return (
     <section className="Main">
-      <div className="container">
-        <h1 className="text-4xl p-2">매일 새로운 웹툰을 발견해 보세요.</h1>
+      <div className="container p-4">
+        <h1 className="text-4xl">매일 새로운 웹툰을 발견해 보세요.</h1>
         <hr />
         <ChartView json={toonJson}>인기 차트</ChartView>
         <CardView json={toonJson}>이달의 신작</CardView>
         <CardView json={toonJson}>나만을 위한 추천</CardView>
-        <CardView json={stationJson}>스테이션</CardView>
+        <hr />
+        <StationView json={stationJson}>스테이션</StationView>
       </div>
     </section>
   );

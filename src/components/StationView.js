@@ -1,32 +1,15 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-CardView.propTypes = {
+StationView.propTypes = {
   json: PropTypes.string,
   children: PropTypes.string,
 };
 
-function CardView(props) {
+function StationView(props) {
   const { json, children } = props;
-  const [data, setData] = useState([]);
-
-  async function getData() {
-    try {
-      const response = await axios.get(json);
-      const webtoon = response.data.data.webtoonList;
-      setData(webtoon);
-
-      console.log(webtoon);
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const data = json.data.list;
 
   return (
     <section className="CardView">
@@ -39,10 +22,10 @@ function CardView(props) {
               <Link to={"/page/" + value.seq}>
                 <div className="inline-block pr-3">
                   <div className="card-size overflow-hidden rounded-lg shadow-md  bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-                    <img src={value.thumbnail} alt="thumbnail" title={value.title} />
+                    <img src={value.image} alt="thumbnail" title={value.title} />
                   </div>
                   <p className="mt-2">{value.title}</p>
-                  <p className="text-zinc-500 text-xs">&#9733;0.0</p>
+                  <p className="text-zinc-500 text-xs">{value.sub}</p>
                 </div>
               </Link>
             ))}
@@ -53,4 +36,4 @@ function CardView(props) {
   );
 }
 
-export default CardView;
+export default StationView;

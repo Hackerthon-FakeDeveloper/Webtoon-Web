@@ -23,6 +23,40 @@ code {
     monospace;
 }
 
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+.bg-point {
+  background-color: rgba(173, 178, 177, 1.0);
+}
+
 
 .hide-scroll-bar {
   -ms-overflow-style: none;
@@ -51,4 +85,9 @@ code {
     min-width: 13rem;
     min-height: 13rem;
   }
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

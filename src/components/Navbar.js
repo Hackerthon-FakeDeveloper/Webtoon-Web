@@ -7,7 +7,7 @@ const Navbar = () => {
   const [menuToggle, setMenuToggle] = useState(false);
 
   return (
-    <section className="Navbar px-2">
+    <section className="Navbar px-4">
       <div className="container">
         <div className="flex justify-between">
           {/* 메뉴 */}
