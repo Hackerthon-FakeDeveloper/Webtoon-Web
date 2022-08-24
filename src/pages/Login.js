@@ -23,7 +23,7 @@ function Login() {
       console.log(response.data);
 
       // false일 경우 프로필로 리다이렉트
-      check === false && navigate("/profile");
+      check === false ? navigate("/profile") : navigate("/");
     })
     .catch(function (error) {
       console.log(error.response.data);

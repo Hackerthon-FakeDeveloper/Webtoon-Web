@@ -42,7 +42,7 @@ function CardView(props) {
             {data.map((value) => (
               <Link to={"/page/" + value.seq}>
                 <div className="inline-block pr-3">
-                  <div className="card-size overflow-hidden rounded-lg shadow-md bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+                  <div className="card-size overflow-hidden rounded-lg shadow-md  bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                     <img src={value.thumbnail} alt="thumbnail" title={value.title} />
                   </div>
                   <p className="mt-2">{value.title}</p>
