@@ -16,13 +16,13 @@ function Main(props) {
       <div className="container p-4">
         <h1 className="text-4xl">매일 새로운 웹툰을 발견해 보세요.</h1>
         <hr />
-        <ChartView json={toonJson}>인기 차트</ChartView>
+        <ChartView json={toonJson}>실시간 TOP10</ChartView>
         <CardView json={toonJson}>이달의 신작</CardView>
         <CardView json={toonJson}>나만을 위한 추천</CardView>
         <hr />
-        <StationView json={stationJson}>스테이션</StationView>
+        <StationView json={stationJson}>추천 스테이션</StationView>
         <CardView json={toonJson}>#로맨스</CardView>
-        <CardView json={toonJson}>#판타지</CardView>
+        <CardView json={toonJson}>#액션</CardView>
         <CardView json={toonJson}>#코미디</CardView>
         <CardView json={toonJson}>#스릴러</CardView>
       </div>

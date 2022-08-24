@@ -28,12 +28,10 @@ const Navbar = () => {
             </div>
 
             <div className="hidden md:flex items-center space-x-1">
-              <span className="py-5 px-3 text-gray-500 hover:text-gray-900">
-                <Link to="/">홈</Link>
-              </span>
-              <span href="#1" className="py-5 px-3 text-gray-500 hover:text-gray-900">
-                리뷰
-              </span>
+              <span className="py-5 px-3 text-gray-500 hover:text-gray-900">인기</span>
+              <span className="py-5 px-3 text-gray-500 hover:text-gray-900">추천</span>
+              <span className="py-5 px-3 text-gray-500 hover:text-gray-900">장르별</span>
+              <span className="py-5 px-3 text-gray-500 hover:text-gray-900">검색</span>
             </div>
           </div>
 
@@ -65,10 +63,10 @@ const Navbar = () => {
           <a href="http://api.modutoon.com/oauth2/authorization/google" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
             구글로 로그인
           </a>
-          <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
-            <Link to="/">홈</Link>
-          </p>
-          <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">리뷰</p>
+          <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">인기</p>
+          <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">추천</p>
+          <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">장르별</p>
+          <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">검색</p>
         </div>
       </div>
     </section>

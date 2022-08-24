@@ -28,7 +28,7 @@
       {
         "image": "https://static.gwansik.dev/modutoon/blue.png",
         "url": "",
-        "title": "개발자의 추천",
+        "title": "개발자도 보는 중",
         "sub": "모두의웹툰 개발자들이 추천하는 작품"
       },
       {
@@ -40,8 +40,8 @@
       {
         "image": "https://static.gwansik.dev/modutoon/purple.png",
         "url": "",
-        "title": "판타지 히트툰",
-        "sub": "판타지 중 평점이 높은 작품"
+        "title": "액션 히트툰",
+        "sub": "액션 중 평점이 높은 작품"
       }
     ]
   }

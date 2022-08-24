@@ -15,7 +15,7 @@ function StationView(props) {
     <section className="CardView">
       <h1 className="text-2xl">{children}</h1>
 
-      <div className="flex flex-col m-auto p-auto">
+      <div className="flex flex-col mb-6">
         <div className="flex overflow-x-scroll py-2 hide-scroll-bar">
           <div className="flex flex-nowrap">
             {data.map((value) => (
