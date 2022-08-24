@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import "../styles/Chartview.css";
 
@@ -31,19 +32,25 @@ function ChartView(props) {
 
   return (
     <section className="ChartView">
-      <h1 className="text-2xl">{children}</h1>
+      <Link to={"/"}>
+        <h1 className="text-2xl">
+          {children} {">"}
+        </h1>
+      </Link>
 
       <ul className="hide-scroll-bar">
         {data.map((value, index) => (
           <li>
-            <div className="select-none cursor-pointer hover:shadow-lg transition-shadow duration-300 ease-in-out flex flex-1 items-center py-4">
-              <div className="mr-3">{index + 1}</div>
-              <img alt="thumbnail" src={value.thumbnail} title={value.title} className="mx-auto object-cover h-10 w-10" />
-              <div className="flex-1 pl-2">
-                <div className="truncate">{value.title}</div>
-                <div className="text-gray-500 text-xs">&#9733;0.0</div>
+            <Link to={"/page/" + value.seq}>
+              <div className="select-none cursor-pointer hover:shadow-lg transition-shadow duration-300 ease-in-out flex flex-1 items-center py-4 pr-2">
+                <div className="mr-3 w-3">{index + 1}</div>
+                <img alt="thumbnail" src={value.thumbnail} title={value.title} className="mx-auto object-cover h-10 w-10 rounded-md shadow-md" />
+                <div className="flex-1 pl-2">
+                  <div className="truncate">{value.title}</div>
+                  <div className="text-gray-500 text-xs">&#9733;0.0</div>
+                </div>
               </div>
-            </div>
+            </Link>
           </li>
         ))}
       </ul>

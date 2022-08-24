@@ -13,10 +13,10 @@ function StationView(props) {
 
   return (
     <section className="CardView">
-      <h1 className="text-2xl p-2">{children}</h1>
+      <h1 className="text-2xl">{children}</h1>
 
       <div className="flex flex-col m-auto p-auto">
-        <div className="flex overflow-x-scroll p-2 hide-scroll-bar">
+        <div className="flex overflow-x-scroll py-2 hide-scroll-bar">
           <div className="flex flex-nowrap">
             {data.map((value) => (
               <Link to={"/page/" + value.seq}>

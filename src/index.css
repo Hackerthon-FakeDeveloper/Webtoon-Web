@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: #f7f7f6;
   color: rgb(0.4, 0.4, 0.4);
   margin: 0;
   font-family: "CookieRun", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -54,7 +54,7 @@ code {
 }
 
 .bg-point {
-  background-color: rgba(173, 178, 177, 1.0);
+  background-color: #bbbcbc;
 }
 
 
@@ -82,12 +82,17 @@ code {
 
 @media (min-width: 768px) {
   .card-size {
-    min-width: 13rem;
-    min-height: 13rem;
+    min-width: 12rem;
+    min-height: 12rem;
   }
 }
 
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.wh-270 {
+  min-width: 270px;
+  min-height: 270px;
 }

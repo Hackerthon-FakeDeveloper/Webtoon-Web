@@ -21,6 +21,10 @@ function Main(props) {
         <CardView json={toonJson}>나만을 위한 추천</CardView>
         <hr />
         <StationView json={stationJson}>스테이션</StationView>
+        <CardView json={toonJson}>#로맨스</CardView>
+        <CardView json={toonJson}>#판타지</CardView>
+        <CardView json={toonJson}>#코미디</CardView>
+        <CardView json={toonJson}>#스릴러</CardView>
       </div>
     </section>
   );
