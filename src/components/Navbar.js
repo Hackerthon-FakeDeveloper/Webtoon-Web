@@ -31,7 +31,9 @@ const Navbar = () => {
               <span className="py-5 px-3 text-gray-500 hover:text-gray-900">인기</span>
               <span className="py-5 px-3 text-gray-500 hover:text-gray-900">추천</span>
               <span className="py-5 px-3 text-gray-500 hover:text-gray-900">조회</span>
-              <span className="py-5 px-3 text-gray-500 hover:text-gray-900">검색</span>
+              <Link to={"/search"} className="py-5 px-3 text-gray-500 hover:text-gray-900">
+                검색
+              </Link>
             </div>
           </div>
 
@@ -84,7 +86,9 @@ const Navbar = () => {
           <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">인기</p>
           <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">추천</p>
           <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">조회</p>
-          <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">검색</p>
+          <Link to={"/search"} className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+            검색
+          </Link>
         </div>
       </div>
     </section>

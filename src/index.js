@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Page from "./pages/Page";
 import Profile from "./pages/Profile";
 import List from "./pages/List";
+import Search from "./components/Search";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -22,10 +23,12 @@ root.render(
     <Routes>
       <Route path="/" element={<Main />} />
       <Route path="profile" element={<Profile />} />
-
       <Route path="login/:token" element={<Login />} />
       <Route path="page/:id" element={<Page />} />
       <Route path="list/:list" element={<List />} />
+
+      <Route path="search/:key" element={<Search />} />
+      <Route path="search" element={<Search />} />
     </Routes>
 
     <Footer />
