@@ -6,8 +6,6 @@ const Navbar = () => {
   const [menuToggle, setMenuToggle] = useState(false);
   const login = sessionStorage.getItem("USER");
 
-  console.log(login);
-
   return (
     <section className="Navbar">
       <div className="container">

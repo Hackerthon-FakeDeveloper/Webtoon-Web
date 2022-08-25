@@ -30,7 +30,7 @@ function CardView(props) {
 
   return (
     <section className="CardView">
-      <Link to={"/"}>
+      <Link to={"/list/" + children}>
         <h1 className="text-2xl">
           {children} {">"}
         </h1>
