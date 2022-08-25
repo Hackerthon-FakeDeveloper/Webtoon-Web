@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 import Comment from "../components/Comment";
+import ControllBar from "../components/ControllBar";
 
 function Page() {
   const { id } = useParams();
@@ -31,6 +32,7 @@ function Page() {
   return (
     <section className="Page">
       <div className="container p-6 mt-4">
+        {/* PC, 태블릿 */}
         <div className="hidden md:flex">
           <a href={data.url}>
             <img src={data.thumbnail} alt="thumbnail" title={data.title} className="wh-270 rounded-lg shadow-md" />
@@ -44,13 +46,6 @@ function Page() {
             <hr />
             <p className="text-sm">{data.description}</p>
           </div>
-        </div>
-
-        <div className="hidden md:flex flex-col bg-white rounded-lg w-full shadow-md mt-4 p-4">
-          <p className="text-2xl">리뷰</p>
-          <Comment></Comment>
-          <hr />
-          <p className="text-2xl">통계</p>
         </div>
 
         {/* 모바일 */}
@@ -71,7 +66,9 @@ function Page() {
           </div>
         </div>
 
-        <div className="md:hidden mt-4 bg-white rounded-lg w-full h-full shadow-md p-4">
+        <ControllBar></ControllBar>
+
+        <div className="mt-4 bg-white rounded-lg w-full h-full shadow-md p-4">
           <p className="text-2xl">리뷰</p>
           <Comment></Comment>
           <hr />
