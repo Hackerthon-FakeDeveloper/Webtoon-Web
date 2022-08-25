@@ -73,6 +73,8 @@ function Page() {
           <Comment></Comment>
           <hr />
           <p className="text-2xl">통계</p>
+          <hr />
+          <p className="text-2xl">관련 작품</p>
         </div>
       </div>
     </section>
