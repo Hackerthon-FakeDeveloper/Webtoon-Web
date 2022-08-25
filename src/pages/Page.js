@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
+import Comment from "../components/Comment";
+
 function Page() {
   const { id } = useParams();
   const [data, setData] = useState([]);
@@ -28,7 +30,7 @@ function Page() {
 
   return (
     <section className="Page">
-      <div className="container p-4 mt-3">
+      <div className="container p-6 mt-4">
         <div className="hidden md:flex">
           <a href={data.url}>
             <img src={data.thumbnail} alt="thumbnail" title={data.title} className="wh-270 rounded-lg shadow-md" />
@@ -38,18 +40,22 @@ function Page() {
             <p className="text-2xl">{name}</p>
             <p className="text-md">{data.platform}</p>
             <p>{data.startDate}</p>
-            <p>평균 &#9733;0.0</p>
-            <p className="text-sm mt-2">{data.description}</p>
+            <p>평균 &#9733;0.0 (0명)</p>
+            <hr />
+            <p className="text-sm">{data.description}</p>
           </div>
         </div>
 
-        <div className="hidden md:flex mt-4 bg-white rounded-lg w-full shadow-md p-4">
-          <h1>평가</h1>
+        <div className="hidden md:flex flex-col bg-white rounded-lg w-full shadow-md mt-4 p-4">
+          <p className="text-2xl">리뷰</p>
+          <Comment></Comment>
+          <hr />
+          <p className="text-2xl">통계</p>
         </div>
 
         {/* 모바일 */}
         <div className="md:hidden flex flex-col">
-          <div className="text-center ">
+          <div className="text-center">
             <a href={data.url}>
               <img src={data.thumbnail} alt="thumbnail" title={data.title} className="wh-270 rounded-lg shadow-md mx-auto" />
             </a>
@@ -58,14 +64,18 @@ function Page() {
               <p className="text-2xl">{name}</p>
               <p className="text-md">{data.platform}</p>
               <p>{data.startDate}</p>
-              <p>평균 &#9733;0.0</p>
-              <p className="text-sm mt-2">{data.description}</p>
+              <p>평균 &#9733;0.0 (명)</p>
+              <hr />
+              <p className="text-sm">{data.description}</p>
             </div>
           </div>
         </div>
 
         <div className="md:hidden mt-4 bg-white rounded-lg w-full h-full shadow-md p-4">
-          <h1>평가</h1>
+          <p className="text-2xl">리뷰</p>
+          <Comment></Comment>
+          <hr />
+          <p className="text-2xl">통계</p>
         </div>
       </div>
     </section>

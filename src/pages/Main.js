@@ -4,8 +4,6 @@ import ChartView from "../components/ChartView";
 import CardView from "../components/CardView";
 import StationView from "../components/StationView";
 
-import "../styles/Main.css";
-
 import stationJson from "../test/station.json";
 
 function Main(props) {
@@ -13,7 +11,7 @@ function Main(props) {
 
   return (
     <section className="Main">
-      <div className="container p-4">
+      <div className="container p-6 mt-4">
         <h1 className="text-4xl">매일 새로운 웹툰을 발견해 보세요.</h1>
         <hr />
         <ChartView json={toonJson}>실시간 TOP10</ChartView>

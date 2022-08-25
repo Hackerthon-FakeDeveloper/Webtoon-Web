@@ -3,8 +3,6 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import "../styles/Chartview.css";
-
 ChartView.propTypes = {
   json: PropTypes.string,
   children: PropTypes.string,

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -12,7 +11,7 @@ const Navbar = () => {
   return (
     <section className="Navbar">
       <div className="container">
-        <div className="flex justify-between px-4">
+        <div className="flex justify-between px-6">
           {/* 메뉴 */}
           <div className="flex space-x-4">
             <div>
@@ -41,7 +40,7 @@ const Navbar = () => {
           {/* 메뉴2 */}
           <div className="hidden md:flex items-center space-x-1">
             {login === null ? (
-              <a href="http://api.modutoon.com/oauth2/authorization/google" className="py-2 p-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300 flex items-center space-x-1">
+              <a href="http://api.modutoon.com/oauth2/authorization/google" className="py-2 p-3 bg-yellow-300 hover:bg-yellow-200 text-yellow-900 hover:text-yellow-800 rounded transition duration-300 flex items-center space-x-1">
                 <svg class="mr-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
                   <path
                     fill="currentColor"
