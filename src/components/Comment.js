@@ -12,12 +12,10 @@ function Comment(props) {
   const { json, children } = props;
   const [data, setData] = useState([]);
 
-  const testJson = "http://api.modutoon.com/webtoon/list?display=4";
-
   async function getData() {
     try {
-      const response = await axios.get(testJson);
-      const webtoon = response.data.data.webtoonList;
+      const response = await axios.get(json);
+      const webtoon = response.data.data.reviewList;
       setData(webtoon);
 
       console.log(webtoon);
@@ -41,11 +39,11 @@ function Comment(props) {
               <div className="inline-block pr-3">
                 <div className="flex flex-col justify-between comment-size overflow-hidden rounded-lg bg-c-gray p-4">
                   <div className="flex justify-between ">
-                    <p>닉네임</p>
-                    <p>&#9733; 0.0점</p>
+                    <p>{value.user.nickname}</p>
+                    <p>&#9733; {value.scoreFirst}점</p>
                   </div>
                   <hr />
-                  <p className="text-sm">여기는 평가 코멘트가 작성될 공간입니다. 여기는 평가 코멘트가 작성될 공간입니다.여기는 평가 코멘트가 작성될 공간입니다. 여기는 평가 코멘트가 작성될 공간입니다...</p>
+                  <p className="text-sm">{value.content}</p>
                   <hr />
                   <div className="flex flex-row ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

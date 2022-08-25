@@ -42,7 +42,10 @@ function Page() {
             <p className="text-2xl">{name}</p>
             <p className="text-md">{data.platform}</p>
             <p>{data.startDate}</p>
-            <p>평균 &#9733;0.0 (0명)</p>
+            <p>평균 &#9733;{data.scoreTotalAverage}</p>
+            <p>
+              작화 &#9733;{data.scoreFirstAverage} / 스토리 &#9733;{data.scoreSecondAverage} / 연출 &#9733;{data.scoreThirdAverage}
+            </p>
             <hr />
             <p className="text-sm">{data.description}</p>
           </div>
@@ -59,7 +62,10 @@ function Page() {
               <p className="text-2xl">{name}</p>
               <p className="text-md">{data.platform}</p>
               <p>{data.startDate}</p>
-              <p>평균 &#9733;0.0 (명)</p>
+              <p>평균 &#9733; {data.scoreTotalAverage}점</p>
+              <p>
+                작화 &#9733;{data.scoreFirstAverage} / 스토리 &#9733;{data.scoreSecondAverage} / 연출 &#9733;{data.scoreThirdAverage}
+              </p>
               <hr />
               <p className="text-sm">{data.description}</p>
             </div>
@@ -70,7 +76,7 @@ function Page() {
 
         <div className="mt-4 bg-white rounded-lg w-full h-full shadow-md p-4">
           <p className="text-2xl">리뷰</p>
-          <Comment></Comment>
+          <Comment json={"http://api.modutoon.com:80/review/webtoonReview/" + id}></Comment>
           <hr />
           <p className="text-2xl">통계</p>
           <hr />
