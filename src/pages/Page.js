@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import Comment from "../components/Comment";
 import ControllBar from "../components/ControllBar";
+import CardView from "../components/CardView";
 
 function Page() {
   const { id } = useParams();
@@ -42,9 +43,9 @@ function Page() {
             <p className="text-2xl">{name}</p>
             <p className="text-md">{data.platform}</p>
             <p>{data.startDate}</p>
-            <p>평균 &#9733;{data.scoreTotalAverage}</p>
+            <p>평균 &#9733;{Number(data.scoreTotalAverage).toFixed(2)}</p>
             <p>
-              작화 &#9733;{data.scoreFirstAverage} / 스토리 &#9733;{data.scoreSecondAverage} / 연출 &#9733;{data.scoreThirdAverage}
+              작화 &#9733;{Number(data.scoreFirstAverage).toFixed(2)} / 스토리 &#9733;{Number(data.scoreSecondAverage).toFixed(2)} / 연출 &#9733;{Number(data.scoreThirdAverage).toFixed(2)}
             </p>
             <hr />
             <p className="text-sm">{data.description}</p>
@@ -62,7 +63,7 @@ function Page() {
               <p className="text-2xl">{name}</p>
               <p className="text-md">{data.platform}</p>
               <p>{data.startDate}</p>
-              <p>평균 &#9733; {data.scoreTotalAverage}점</p>
+              <p>평균 &#9733; {Number(data.scoreTotalAverage).toFixed(2)}점</p>
               <p>
                 작화 &#9733;{data.scoreFirstAverage} / 스토리 &#9733;{data.scoreSecondAverage} / 연출 &#9733;{data.scoreThirdAverage}
               </p>
@@ -72,7 +73,7 @@ function Page() {
           </div>
         </div>
 
-        <ControllBar></ControllBar>
+        <ControllBar />
 
         <div className="mt-4 bg-white rounded-lg w-full h-full shadow-md p-4">
           <p className="text-2xl">리뷰</p>
@@ -81,6 +82,7 @@ function Page() {
           <p className="text-2xl">통계</p>
           <hr />
           <p className="text-2xl">관련 작품</p>
+          <CardView json={"http://api.modutoon.com:80/webtoon/relate/" + id}></CardView>
         </div>
       </div>
     </section>

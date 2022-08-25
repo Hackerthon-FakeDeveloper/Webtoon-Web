@@ -63,11 +63,11 @@ function Search() {
         <hr />
 
         {/* 검색 웹툰 불러오기 */}
-        <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-6 py-2">
+        <div className="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-4 grid-cols-2 gap-6 py-2">
           {data.map((value) => (
             <div>
               <Link to={"/page/" + value.seq}>
-                <div className="card-size rounded-lg shadow-md bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+                <div className="card-size rounded-lg overflow-hidden shadow-md bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                   <img src={value.thumbnail} alt="thumbnail" title={value.title} />
                 </div>
                 <p className="mt-2">{value.title}</p>

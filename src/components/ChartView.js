@@ -41,7 +41,7 @@ function ChartView(props) {
                 <img alt="thumbnail" src={value.thumbnail} title={value.title} className="mx-auto object-cover h-10 w-10 rounded-md shadow-md" />
                 <div className="flex-1 pl-2">
                   <div className="truncate">{value.title}</div>
-                  <div className="text-gray-500 text-xs">&#9733;0.0</div>
+                  <div className="text-gray-500 text-xs">&#9733; {Number(value.scoreTotalAverage).toFixed(2)}점</div>
                 </div>
               </div>
             </Link>

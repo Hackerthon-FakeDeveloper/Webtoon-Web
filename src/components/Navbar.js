@@ -41,16 +41,16 @@ const Navbar = () => {
             </div>
 
             <div className="hidden md:flex items-center space-x-1">
-              <Link to={"/list/인기"} className="py-5 px-3 text-gray-500 hover:text-gray-900">
+              <a href="/list/인기" className="py-5 px-3 text-gray-500 hover:text-gray-900">
                 인기
-              </Link>
-              <Link to={"/list/나만을 위한 추천"} className="py-5 px-3 text-gray-500 hover:text-gray-900">
+              </a>
+              <a href="/list/나만을 위한 추천" className="py-5 px-3 text-gray-500 hover:text-gray-900">
                 추천
-              </Link>
+              </a>
               <span className="py-5 px-3 text-gray-500 hover:text-gray-900">조회</span>
-              <Link to={"/search"} className="py-5 px-3 text-gray-500 hover:text-gray-900">
+              <a href="/search" className="py-5 px-3 text-gray-500 hover:text-gray-900">
                 검색
-              </Link>
+              </a>
             </div>
           </div>
 

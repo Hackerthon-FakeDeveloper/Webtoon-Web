@@ -29,9 +29,7 @@ function CardView(props) {
   return (
     <section className="CardView">
       <Link to={"/list/" + children}>
-        <h1 className="text-2xl">
-          {children} {">"}
-        </h1>
+        <h1 className="text-2xl">{children}</h1>
       </Link>
 
       <div className="flex flex-col mb-6">
@@ -44,7 +42,7 @@ function CardView(props) {
                     <img src={value.thumbnail} alt="thumbnail" title={value.title} />
                   </div>
                   <p className="mt-2">{value.title}</p>
-                  <p className="text-zinc-500 text-xs">&#9733;0.0</p>
+                  <p className="text-zinc-500 text-xs">&#9733; {Number(value.scoreTotalAverage).toFixed(2)}점</p>
                 </Link>
               </div>
             ))}

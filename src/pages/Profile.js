@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 function Profile(props) {
@@ -6,7 +6,7 @@ function Profile(props) {
 
   const [inputs, setInputs] = useState({
     gender: "",
-    age: "",
+    age: 1,
     nickname: "",
   });
 
@@ -26,16 +26,19 @@ function Profile(props) {
     console.log(inputs);
 
     axios
-      .put("http://api.modutoon.com:80/user", {
-        headers: {
-          Authorization: token,
-          data: {
-            gender: gender,
-            age: age,
-            nickname: nickname,
-          },
+      .put(
+        "http://api.modutoon.com:80/user",
+        {
+          gender: gender,
+          age: age,
+          nickname: nickname,
         },
-      })
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       .then(function (response) {
         console.log(response.data);
       })
@@ -73,12 +76,9 @@ function Profile(props) {
               성별
             </label>
 
-            <select name="gender" className="mt-1 relative rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300" onChange={onChange}>
-              <option selected value="M">
-                남자
-              </option>
-              <option value="F">여자</option>
-            </select>
+            <div className="mt-1 relative ">
+              <input type="text" name="gender" value={gender} onChange={onChange} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
+            </div>
           </div>
 
           <div className="mt-2">
