@@ -40,15 +40,15 @@ function CardView(props) {
         <div className="flex overflow-x-scroll py-2 hide-scroll-bar">
           <div className="flex flex-nowrap">
             {data.map((value) => (
-              <Link to={"/page/" + value.seq}>
-                <div className="inline-block pr-3">
-                  <div className="card-size overflow-hidden rounded-lg shadow-md  bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+              <div className="inline-block pr-3">
+                <Link to={"/page/" + value.seq}>
+                  <div className="card-size overflow-hidden rounded-lg shadow-md bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                     <img src={value.thumbnail} alt="thumbnail" title={value.title} />
                   </div>
                   <p className="mt-2">{value.title}</p>
                   <p className="text-zinc-500 text-xs">&#9733;0.0</p>
-                </div>
-              </Link>
+                </Link>
+              </div>
             ))}
           </div>
         </div>
