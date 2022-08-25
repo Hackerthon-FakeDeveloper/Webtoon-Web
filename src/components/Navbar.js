@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuToggle, setMenuToggle] = useState(false);
-  const login = sessionStorage.getItem("USER");
+  const [login, setLogin] = useState(null);
+
+  const getLoginState = () => {
+    setLogin(sessionStorage.getItem("USER"));
+  };
+
+  const loginOut = () => {
+    sessionStorage.removeItem("USER");
+    console.log(sessionStorage.getItem("USER"));
+  };
+
+  useEffect(() => {
+    getLoginState();
+  }, []);
 
   return (
     <section className="Navbar">
@@ -28,8 +41,12 @@ const Navbar = () => {
             </div>
 
             <div className="hidden md:flex items-center space-x-1">
-              <span className="py-5 px-3 text-gray-500 hover:text-gray-900">인기</span>
-              <span className="py-5 px-3 text-gray-500 hover:text-gray-900">추천</span>
+              <Link to={"/list/인기"} className="py-5 px-3 text-gray-500 hover:text-gray-900">
+                인기
+              </Link>
+              <Link to={"/list/나만을 위한 추천"} className="py-5 px-3 text-gray-500 hover:text-gray-900">
+                추천
+              </Link>
               <span className="py-5 px-3 text-gray-500 hover:text-gray-900">조회</span>
               <Link to={"/search"} className="py-5 px-3 text-gray-500 hover:text-gray-900">
                 검색
@@ -50,9 +67,14 @@ const Navbar = () => {
                 구글로 로그인
               </a>
             ) : (
-              <Link to={"/profile"}>
-                <p className="py-2 p-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">프로필</p>
-              </Link>
+              <>
+                <a href="/" className="py-2 p-3" onClick={loginOut}>
+                  로그아웃
+                </a>
+                <Link to={"/profile"}>
+                  <p className="py-2 p-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">프로필</p>
+                </Link>
+              </>
             )}
           </div>
 
@@ -79,12 +101,21 @@ const Navbar = () => {
               구글로 로그인
             </a>
           ) : (
-            <a href="http://modutoon.com/profile" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
-              프로필
-            </a>
+            <>
+              <a href="/" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900" onClick={loginOut}>
+                로그아웃
+              </a>
+              <a href="http://modutoon.com/profile" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+                프로필
+              </a>
+            </>
           )}
-          <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">인기</p>
-          <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">추천</p>
+          <Link to={"/list/인기"} className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+            인기
+          </Link>
+          <Link to={"/list/나만을 위한 추천"} className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+            추천
+          </Link>
           <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">조회</p>
           <Link to={"/search"} className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
             검색

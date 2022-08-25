@@ -10,10 +10,12 @@ function List() {
 
   // 리스트 분류
   list === "이달의 신작" && (URL = "http://api.modutoon.com/webtoon/new");
+  list === "나만을 위한 추천" && (URL = "http://api.modutoon.com/webtoon/list");
   list === "로맨스" && (URL = "http://api.modutoon.com:80/webtoon/tag/string/로맨스");
   list === "액션" && (URL = "http://api.modutoon.com:80/webtoon/tag/string/액션");
   list === "코미디" && (URL = "http://api.modutoon.com:80/webtoon/tag/string/코미디");
   list === "스릴러" && (URL = "http://api.modutoon.com:80/webtoon/tag/string/스릴러");
+  list === "인기" && (URL = "http://api.modutoon.com:80/webtoon/popular/recent");
 
   async function getData() {
     try {
