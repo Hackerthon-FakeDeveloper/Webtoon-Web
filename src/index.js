@@ -27,7 +27,6 @@ root.render(
       <Route path="page/:id" element={<Page />} />
       <Route path="list/:list" element={<List />} />
 
-      <Route path="search/:key" element={<Search />} />
       <Route path="search" element={<Search />} />
     </Routes>
 

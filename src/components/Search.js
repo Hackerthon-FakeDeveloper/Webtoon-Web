@@ -1,15 +1,38 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-function Search(props) {
-  const { key } = useParams();
+function Search() {
+  const [data, setData] = useState([]);
+  const [url, setUrl] = useState("http://api.modutoon.com:80/webtoon/list");
 
-  console.log(key);
+  const onChange = (e) => {
+    setUrl("http://api.modutoon.com:80/webtoon/search?keyword=" + e.target.value);
+  };
+
+  const onClick = () => {
+    getData();
+  };
+
+  async function getData() {
+    try {
+      const response = await axios.get(url);
+      const webtoon = response.data.data.webtoonList;
+      setData(webtoon);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <section className="Search">
       <div className="container p-6 mt-4">
-        <form class="flex items-center">
+        {/* 검색바 */}
+        <div class="flex items-center">
           <div class="relative w-full">
             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
               <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -22,9 +45,11 @@ function Search(props) {
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="키워드를 입력해주세요"
               required=""
+              onChange={onChange}
             />
           </div>
           <button
+            onClick={onClick}
             type="submit"
             class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
@@ -33,7 +58,24 @@ function Search(props) {
             </svg>
             <span class="sr-only"></span>
           </button>
-        </form>
+        </div>
+
+        <hr />
+
+        {/* 검색 웹툰 불러오기 */}
+        <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-6 py-2">
+          {data.map((value) => (
+            <div>
+              <Link to={"/page/" + value.seq}>
+                <div className="card-size rounded-lg shadow-md bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+                  <img src={value.thumbnail} alt="thumbnail" title={value.title} />
+                </div>
+                <p className="mt-2">{value.title}</p>
+                <p className="text-zinc-500 text-xs">&#9733;0.0</p>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
