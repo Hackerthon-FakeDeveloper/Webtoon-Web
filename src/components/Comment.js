@@ -35,7 +35,7 @@ function Comment(props) {
           <div className="flex flex-nowrap">
             {data.map((value) => (
               <div className="inline-block pr-3">
-                <div className="flex flex-col justify-between comment-size overflow-hidden rounded-lg bg-c-gray p-4">
+                <div className="flex flex-col justify-between comment-size overflow-hidden rounded-lg hover:shadow-md transition-shadow duration-300 ease-in-out bg-c-gray p-4">
                   <div className="flex justify-between ">
                     <p>{value.user.nickname}</p>
                     <p>&#9733; {value.scoreFirst}점</p>

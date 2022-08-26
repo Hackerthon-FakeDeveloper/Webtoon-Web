@@ -65,7 +65,7 @@ function List() {
       <div className="container p-6 mt-4">
         <h1 className="text-2xl">{list}</h1>
 
-        <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 grid-cols-3 gap-6 py-2">
+        <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 grid-cols-2 gap-6 py-2">
           {data.map((value) => (
             <div>
               <Link to={"/page/" + value.seq}>

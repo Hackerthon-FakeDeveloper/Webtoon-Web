@@ -125,7 +125,7 @@ hr {
 }
 
 .text-color-red {
-  color: #f4f7ef;
+  color: #4e5dd8;
 }
 
 .station-size {
@@ -138,4 +138,9 @@ hr {
     width: 192px;
     height: 176px;
   }
+}
+
+.NotFound {
+  font-size: xx-large;
+  font-weight: bold;
 }
