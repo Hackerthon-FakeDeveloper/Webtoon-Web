@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Search() {
   const [data, setData] = useState([]);
-  const [url, setUrl] = useState("http://api.modutoon.com:80/webtoon/list");
+  const [url, setUrl] = useState("http://api.modutoon.com:80/webtoon/new");
 
   const onChange = (e) => {
     setUrl("http://api.modutoon.com:80/webtoon/search?keyword=" + e.target.value);
@@ -63,7 +63,7 @@ function Search() {
         <hr />
 
         {/* 검색 웹툰 불러오기 */}
-        <div className="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-4 grid-cols-2 gap-6 py-2">
+        <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 grid-cols-3 gap-6 py-2">
           {data.map((value) => (
             <div>
               <Link to={"/page/" + value.seq}>

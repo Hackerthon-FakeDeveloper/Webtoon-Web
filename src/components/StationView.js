@@ -21,9 +21,7 @@ function StationView(props) {
             {data.map((value) => (
               <Link to={"/list/" + value.seq}>
                 <div className="inline-block pr-3">
-                  <div className="card-size overflow-hidden rounded-lg shadow-md  bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-                    <img src={value.image} alt="thumbnail" title={value.title} />
-                  </div>
+                  <div className="station-size overflow-hidden rounded-lg shadow-md p-1 text-right text-sm bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">모두의 웹툰</div>
                   <p className="mt-2">{value.title}</p>
                   <p className="text-zinc-500 text-xs">{value.sub}</p>
                 </div>

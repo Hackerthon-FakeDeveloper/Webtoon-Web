@@ -43,13 +43,7 @@ code {
 
 @media (min-width: 1024px) {
   .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
+    max-width: 980px;
   }
 }
 
@@ -132,4 +126,16 @@ hr {
 
 .text-color-red {
   color: #f4f7ef;
+}
+
+.station-size {
+  width: 128px;
+  height: 117px;
+}
+
+@media (min-width: 768px) {
+  .station-size {
+    width: 192px;
+    height: 176px;
+  }
 }

@@ -50,6 +50,7 @@ function Profile() {
         }
       )
       .then(function (response) {
+        alert("정보 수정이 완료되었습니다!");
         console.log(response.data);
       })
       .catch(function (error) {
@@ -77,10 +78,6 @@ function Profile() {
   return (
     <section className="Profile">
       <div className="container text-center p-4 mt-3">
-        <div class="px-4 py-4 text-bold text-white bg-blue-500 rounded shadow-lg shadow-blue-500/50" role="alert">
-          프로필 수정 완료!
-        </div>
-
         <h1 className="text-2xl">프로필 설정 🛠</h1>
         <hr />
         <div className="flex flex-col">
