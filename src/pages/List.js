@@ -51,7 +51,6 @@ function List() {
       });
       const webtoon = response.data.data.webtoonList;
       setData(webtoon);
-      console.log(webtoon);
     } catch (e) {
       console.error(e);
     }

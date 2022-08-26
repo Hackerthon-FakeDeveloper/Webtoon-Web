@@ -12,7 +12,6 @@ const Navbar = () => {
 
   const loginOut = () => {
     sessionStorage.removeItem("USER");
-    console.log(sessionStorage.getItem("USER"));
   };
 
   useEffect(() => {

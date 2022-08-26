@@ -36,8 +36,6 @@ function Page() {
     a.download = createFileName(extension, name);
     a.click();
 
-    console.log(a.href);
-
     const splitDataURI = image.split(",");
     const byteString = splitDataURI[0].indexOf("base64") >= 0 ? atob(splitDataURI[1]) : decodeURI(splitDataURI[1]);
     const mimeString = splitDataURI[0].split(":")[1].split(";")[0];
@@ -74,11 +72,8 @@ function Page() {
       )
       .then(function (response) {
         alert("좋아요!");
-        console.log(response.data);
       })
-      .catch(function (error) {
-        console.log(error.response.data);
-      });
+      .catch(function (error) {});
   };
 
   useEffect(() => {

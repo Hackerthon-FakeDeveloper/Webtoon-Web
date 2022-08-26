@@ -33,8 +33,6 @@ function Profile() {
 
   // 회원 정보 수정
   const onClick = async () => {
-    console.log(inputs);
-
     await axios
       .put(
         "http://api.modutoon.com:80/user",
@@ -51,11 +49,8 @@ function Profile() {
       )
       .then(function (response) {
         alert("정보 수정이 완료되었습니다!");
-        console.log(response.data);
       })
-      .catch(function (error) {
-        console.log(error.response.data);
-      });
+      .catch(function (error) {});
   };
 
   // 렌더링시 불러오기
@@ -68,11 +63,8 @@ function Profile() {
       })
       .then(function (response) {
         setProfile(response.data.data.user);
-        console.log(response.data);
       })
-      .catch(function (error) {
-        console.log(error.response.data);
-      });
+      .catch(function (error) {});
   }, [token]);
 
   return (

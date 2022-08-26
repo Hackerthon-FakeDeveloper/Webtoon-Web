@@ -17,8 +17,6 @@ function Comment(props) {
       const response = await axios.get(json);
       const webtoon = response.data.data.reviewList;
       setData(webtoon);
-
-      console.log(webtoon);
     } catch (e) {
       console.error(e);
     }
