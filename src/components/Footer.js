@@ -21,9 +21,11 @@ function Footer() {
 
   return (
     <section className="Footer">
-      <div className="text-center mt-10">
+      <div className="text-center text-bold mt-10">
         <div className="bg-point">
-          <h1 className="text-xl p-4">지금까지 &#9733; {data}개의 리뷰가 쌓여있어요!</h1>
+          <h1 className="text-xl p-4">
+            지금까지 &#9733; <span className="text-color-red">{data}</span>개의 리뷰가 쌓여있어요!
+          </h1>
         </div>
 
         <div class="container p-10">

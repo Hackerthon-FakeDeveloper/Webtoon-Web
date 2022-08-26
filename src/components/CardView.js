@@ -29,7 +29,7 @@ function CardView(props) {
   return (
     <section className="CardView">
       <Link to={"/list/" + children}>
-        <h1 className="text-2xl">{children}</h1>
+        <h1 className="text-2xl text-bold">{children}</h1>
       </Link>
 
       <div className="flex flex-col mb-6">
@@ -37,13 +37,13 @@ function CardView(props) {
           <div className="flex flex-nowrap">
             {data.map((value) => (
               <div className="inline-block pr-3">
-                <Link to={"/page/" + value.seq}>
+                <a href={"/page/" + value.seq}>
                   <div className="card-size overflow-hidden rounded-lg shadow-md bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                     <img src={value.thumbnail} alt="thumbnail" title={value.title} />
                   </div>
                   <p className="mt-2">{value.title}</p>
                   <p className="text-zinc-500 text-xs">&#9733; {Number(value.scoreTotalAverage).toFixed(2)}점</p>
-                </Link>
+                </a>
               </div>
             ))}
           </div>

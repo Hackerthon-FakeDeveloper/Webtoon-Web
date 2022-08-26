@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 function Login() {
   const { token } = useParams();
-  let navigate = useNavigate();
+  var navigate = useNavigate();
 
   // 정사적으로 토큰이 들어오면 세션 스토리지에 저장
   if (token) {
@@ -20,14 +20,11 @@ function Login() {
     })
     .then(function (response) {
       const check = response.data.data.check;
-      console.log(response.data);
 
       // false일 경우 프로필 설정으로 리다이렉트
       check === false ? navigate("/profile") : navigate("/");
     })
-    .catch(function (error) {
-      console.log(error.response.data);
-    });
+    .catch(function (error) {});
 
   return <section className="Login"></section>;
 }

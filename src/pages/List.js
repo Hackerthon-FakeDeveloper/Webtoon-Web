@@ -17,6 +17,19 @@ function List() {
       URL = "http://api.modutoon.com/webtoon/list";
       break;
 
+    case "인기":
+      URL = "http://api.modutoon.com:80/webtoon/popular/all?display=20";
+      break;
+
+    // 내가 좋아요 한 웹툰
+    case "조회":
+      URL = "http://api.modutoon.com:80/webtoon/like";
+      break;
+
+    case "실시간랭킹":
+      URL = "http://api.modutoon.com:80/webtoon/popular/recent?display=20";
+      break;
+
     case "로맨스":
     case "액션":
     case "코미디":
@@ -24,17 +37,18 @@ function List() {
       URL = "http://api.modutoon.com:80/webtoon/tag/string/" + list;
       break;
 
-    case "인기":
-      URL = "http://api.modutoon.com:80/webtoon/popular/recent";
-      break;
-
     default:
+      URL = "http://api.modutoon.com/webtoon/list";
       break;
   }
 
   async function getData() {
     try {
-      const response = await axios.get(URL);
+      const response = await axios.get(URL, {
+        headers: {
+          Authorization: sessionStorage.getItem("USER"),
+        },
+      });
       const webtoon = response.data.data.webtoonList;
       setData(webtoon);
       console.log(webtoon);
@@ -60,7 +74,7 @@ function List() {
                   <img src={value.thumbnail} alt="thumbnail" title={value.title} />
                 </div>
                 <p className="mt-2">{value.title}</p>
-                <p className="text-zinc-500 text-xs">&#9733;0.0</p>
+                <p className="text-zinc-500 text-xs">&#9733; {Number(value.scoreTotalAverage).toFixed(2)}점</p>
               </Link>
             </div>
           ))}

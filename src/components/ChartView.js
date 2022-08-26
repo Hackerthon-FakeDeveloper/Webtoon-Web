@@ -28,8 +28,8 @@ function ChartView(props) {
 
   return (
     <section className="ChartView">
-      <Link to={"/"}>
-        <h1 className="text-2xl">{children}</h1>
+      <Link to={"/list/실시간랭킹"}>
+        <h1 className="text-2xl text-bold">{children}</h1>
       </Link>
 
       <ul className="hide-scroll-bar">

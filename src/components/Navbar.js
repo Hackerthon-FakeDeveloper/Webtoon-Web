@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <section className="Navbar">
       <div className="container">
-        <div className="flex justify-between px-6">
+        <div className="flex justify-between px-6 text-bold">
           {/* 메뉴 */}
           <div className="flex space-x-4">
             <div>
@@ -47,7 +47,9 @@ const Navbar = () => {
               <a href="/list/나만을 위한 추천" className="py-5 px-3 text-gray-500 hover:text-gray-900">
                 추천
               </a>
-              <span className="py-5 px-3 text-gray-500 hover:text-gray-900">조회</span>
+              <a href="/list/조회" className="py-5 px-3 text-gray-500 hover:text-gray-900">
+                조회
+              </a>
               <a href="/search" className="py-5 px-3 text-gray-500 hover:text-gray-900">
                 검색
               </a>
@@ -72,7 +74,7 @@ const Navbar = () => {
                   로그아웃
                 </a>
                 <Link to={"/profile"}>
-                  <p className="py-2 p-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">프로필</p>
+                  <p className="py-2 p-3 bg-yellow-300 hover:bg-yellow-200 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">프로필</p>
                 </Link>
               </>
             )}
@@ -105,21 +107,23 @@ const Navbar = () => {
               <a href="/" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900" onClick={loginOut}>
                 로그아웃
               </a>
-              <a href="http://modutoon.com/profile" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+              <a href="/profile" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
                 프로필
               </a>
             </>
           )}
-          <Link to={"/list/인기"} className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+          <a href="/list/인기" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
             인기
-          </Link>
-          <Link to={"/list/나만을 위한 추천"} className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+          </a>
+          <a href="/list/추천" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
             추천
-          </Link>
-          <p className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">조회</p>
-          <Link to={"/search"} className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+          </a>
+          <a href="/list/조회" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
+            조회
+          </a>
+          <a href="/search" className="block py-2 px-4 text-sm text-gray-500 hover:text-gray-900">
             검색
-          </Link>
+          </a>
         </div>
       </div>
     </section>

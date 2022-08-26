@@ -13,13 +13,13 @@ function StationView(props) {
 
   return (
     <section className="CardView">
-      <h1 className="text-2xl">{children}</h1>
+      <h1 className="text-2xl text-bold">{children}</h1>
 
       <div className="flex flex-col mb-6">
         <div className="flex overflow-x-scroll py-2 hide-scroll-bar">
           <div className="flex flex-nowrap">
             {data.map((value) => (
-              <Link to={"/page/" + value.seq}>
+              <Link to={"/list/" + value.seq}>
                 <div className="inline-block pr-3">
                   <div className="card-size overflow-hidden rounded-lg shadow-md  bg-white hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                     <img src={value.image} alt="thumbnail" title={value.title} />

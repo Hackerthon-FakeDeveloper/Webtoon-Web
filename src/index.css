@@ -125,3 +125,11 @@ hr {
 .bg-c-gray {
   background-color: #f4f7ef;
 }
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-color-red {
+  color: #f4f7ef;
+}

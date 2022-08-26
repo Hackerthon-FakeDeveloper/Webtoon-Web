@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-function Profile(props) {
+function Profile() {
+  var navigate = useNavigate();
   const token = sessionStorage.getItem("USER");
 
-  const [inputs, setInputs] = useState({
-    gender: "",
-    age: 1,
+  token === null && navigate("/");
+
+  const [preProfile, setProfile] = useState({
     nickname: "",
+    age: "",
+    gender: "",
+  });
+
+  const [inputs, setInputs] = useState({
+    nickname: "",
+    age: "",
+    gender: "",
   });
 
   const { gender, age, nickname } = inputs; // 비구조 할당, 값 추출
@@ -22,10 +32,10 @@ function Profile(props) {
   };
 
   // 회원 정보 수정
-  const onClick = (e) => {
+  const onClick = async () => {
     console.log(inputs);
 
-    axios
+    await axios
       .put(
         "http://api.modutoon.com:80/user",
         {
@@ -47,9 +57,30 @@ function Profile(props) {
       });
   };
 
+  // 렌더링시 불러오기
+  useEffect(() => {
+    axios
+      .get("http://api.modutoon.com:80/user/myInfo", {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then(function (response) {
+        setProfile(response.data.data.user);
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error.response.data);
+      });
+  }, [token]);
+
   return (
     <section className="Profile">
       <div className="container text-center p-4 mt-3">
+        <div class="px-4 py-4 text-bold text-white bg-blue-500 rounded shadow-lg shadow-blue-500/50" role="alert">
+          프로필 수정 완료!
+        </div>
+
         <h1 className="text-2xl">프로필 설정 🛠</h1>
         <hr />
         <div className="flex flex-col">
@@ -58,7 +89,7 @@ function Profile(props) {
               닉네임
             </label>
             <div className="mt-1 relative rounded-md shadow-sm">
-              <input type="text" name="nickname" value={nickname} onChange={onChange} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
+              <input type="text" name="nickname" value={nickname} onChange={onChange} placeholder={preProfile.nickname} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
             </div>
           </div>
 
@@ -67,7 +98,7 @@ function Profile(props) {
               나이
             </label>
             <div className="mt-1 relative ">
-              <input type="number" name="age" value={age} onChange={onChange} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
+              <input type="number" name="age" value={age} onChange={onChange} placeholder={preProfile.age} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
             </div>
           </div>
 
@@ -77,7 +108,7 @@ function Profile(props) {
             </label>
 
             <div className="mt-1 relative ">
-              <input type="text" name="gender" value={gender} onChange={onChange} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
+              <input type="text" name="gender" value={gender} onChange={onChange} placeholder={preProfile.gender} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
             </div>
           </div>
 
