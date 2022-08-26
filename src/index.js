@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import List from "./pages/List";
 import Search from "./components/Search";
 import NotFound from "./pages/NotFound";
+import Review from "./pages/Review";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -28,6 +29,7 @@ root.render(
       <Route path="profile" element={<Profile />} />
       <Route path="search" element={<Search />} />
 
+      <Route path="review/:id" element={<Review />} />
       <Route path="login/:token" element={<Login />} />
       <Route path="page/:id" element={<Page />} />
       <Route path="list/:list" element={<List />} />

@@ -2,16 +2,30 @@ import React, { useEffect, useState, createRef } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useScreenshot, createFileName } from "use-react-screenshot";
-import { Link } from "react-router-dom";
-
-import Comment from "../components/Comment";
-import CardView from "../components/CardView";
-import Statistics from "../components/Statistics";
 
 function Page() {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
+
+  const [preProfile, setProfile] = useState({
+    content: "",
+    scoreFirst: "",
+    scoreSecond: "",
+    scoreThird: "",
+    webtoon: id,
+  });
+
+  const { content, scoreFirst, scoreSecond, scoreThird } = preProfile;
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+
+    setProfile({
+      ...preProfile, // 기존의 객체 복사
+      [name]: value,
+    });
+  };
 
   const ref = createRef(null);
   const [image, takeScreenShot] = useScreenshot({
@@ -78,6 +92,31 @@ function Page() {
       .catch(function (error) {});
   };
 
+  const onClickReview = () => {
+    axios
+      .post(
+        "http://api.modutoon.com:80/review",
+        {
+          content: preProfile.content,
+          scoreFirst: Number(preProfile.scoreFirst),
+          scoreSecond: Number(preProfile.scoreSecond),
+          scoreThird: Number(preProfile.scoreThird),
+          webtoon: Number(id),
+        },
+        {
+          headers: {
+            Authorization: sessionStorage.getItem("USER"),
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   useEffect(() => {
     getData();
   }, []);
@@ -125,31 +164,54 @@ function Page() {
           </div>
         </div>
 
-        {/* 컨트롤바 */}
-        <section className="ControllBar">
-          <div className="flex flex-row text-center rounded-lg shadow-md bg-white mt-4 p-4">
-            <Link to={"/review/" + id}>
-              <button className="flex-auto">⭐️ 리뷰</button>
-            </Link>
+        <div className="container text-center p-4 mt-3">
+          <h1 className="text-2xl">리뷰 작성</h1>
+          <hr />
+          <div className="flex flex-col">
+            <div className="mb-2 mx-auto">
+              <label for="content" className="text-sm">
+                한줄평
+              </label>
+              <div className="mt-1 relative rounded-md shadow-sm">
+                <input type="text" name="content" value={content} onChange={onChange} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
+              </div>
+            </div>
 
-            <button className="flex-auto" onClick={onClickLike}>
-              ❤️ 좋아요
-            </button>
-            <button className="flex-auto" onClick={downloadScreenshot}>
-              📸 스크린샷
-            </button>
+            <div className="mb-2 mx-auto">
+              <label for="scoreFirst" className="text-sm">
+                작화
+              </label>
+              <div className="mt-1 relative ">
+                <input type="number" name="scoreFirst" value={scoreFirst} onChange={onChange} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
+              </div>
+            </div>
+
+            <div className="mb-2 mx-auto">
+              <label for="scoreSecond" className="text-sm">
+                스토리
+              </label>
+
+              <div className="mt-1 relative ">
+                <input type="number" name="scoreSecond" value={scoreSecond} onChange={onChange} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
+              </div>
+            </div>
+
+            <div className="mb-2 mx-auto">
+              <label for="scoreThird" className="text-sm">
+                연출
+              </label>
+
+              <div className="mt-1 relative ">
+                <input type="number" name="scoreThird" value={scoreThird} onChange={onChange} className="focus:ring-indigo-500 focus:border-indigo-500 block w-full h-8 sm:text-sm border-gray-300 rounded-md" />
+              </div>
+            </div>
+
+            <div className="mt-2">
+              <button onClick={onClickReview} className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
+                제출
+              </button>
+            </div>
           </div>
-        </section>
-
-        <div className="mt-4 bg-white rounded-lg w-full h-full shadow-md p-4">
-          <p className="text-2xl">리뷰</p>
-          <Comment json={"http://api.modutoon.com:80/review/webtoonReview/" + id}></Comment>
-          <hr />
-          <p className="text-2xl">통계</p>
-          <Statistics title={id}></Statistics>
-          <hr />
-          <p className="text-2xl">관련 작품</p>
-          <CardView json={"http://api.modutoon.com:80/webtoon/relate/" + id}></CardView>
         </div>
       </div>
     </section>
